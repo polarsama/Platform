@@ -24,7 +24,7 @@ public class FoxMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Moviento del jugador A / D
+        //Moviento del jugador A / D   o fecha derecha - izquierda
         Horizontal = Input.GetAxisRaw("Horizontal");
         //rotar sprite jugador izquierda
         if (Horizontal <0.0f) transform.localScale = new Vector3(-1.0f, 1.0f,1.0f);
@@ -32,6 +32,7 @@ public class FoxMovement : MonoBehaviour
 
 
         Animator.SetBool("running", Horizontal != 0.0f);
+        
         //Salto
         Debug.DrawRay(transform.position, Vector3.down * 1.1f, Color.red);
         if(Physics2D.Raycast(transform.position, Vector3.down, 1.1f))
